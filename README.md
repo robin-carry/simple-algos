@@ -40,6 +40,8 @@ Note: There are specific questions folder which are based on one or the other co
 
 3. Merge Sort: Using Divide and Conquire where then each element is compared with neighbour. Then merged back in sorted order. 
 
+4. Bubble Sort: Even though it is useless just keeping it around to be aware of it. 
+
 ## Searching
 
 1. Binary Search : Same as Merge Sort of Divide and Conqure. 
