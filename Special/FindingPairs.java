@@ -1,3 +1,4 @@
+package Special;
 public class FindingPairs {
 	
 	public static void main(String[] args) {
@@ -7,6 +8,7 @@ public class FindingPairs {
 		for(int i = 0; i < input.length; i++) {
 			System.out.print(input[i] + "\t");
 		}
+		System.out.println();
 		System.out.println("Does a pair of number exist with sum 13:" + fp.isPairExists(input, 13));
 		System.out.println("Does a pair of number exist with sum 28:" + fp.isPairExists(input, 28));
 	}

@@ -1,5 +1,5 @@
 // PENDING : NOT COMPLETED!!! :'(
-
+package Special;
 import java.util.Arrays;
 
 public class Inversion {
