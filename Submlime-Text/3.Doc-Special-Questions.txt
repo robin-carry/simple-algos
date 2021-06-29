@@ -5,8 +5,11 @@
 B) Investion Problem: Finding all pairs where i < j & A[i] > A[j]
 ---------------------------------------------------------------------
 
+// PENDING : NOT COMPLETED!!! :'(
+
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 class Pair {
 	int i;
@@ -21,13 +24,24 @@ class Pair {
 public class Inversion {
 	
 	public static void main(String[] args) {
-		int[] input = {10,2,4,3,8,5};
+		int[] input = {10,2,4,3,8,5}; // Actual Answer: (10, 2), (10, 4), (10, 3), (10, 8), (10, 5) / (4, 3) / (8, 5) - 7.
+		int[] originalInput = Arrays.copyOf(input, input.length);
 
 		List<Pair> result = new ArrayList<Pair>();
 		Inversion i = new Inversion();
 		i.sortWithInversion(input, result);
+        System.out.print("Original Input: ");
+        for(int val : originalInput) {
+            System.out.print(val + "\t");
+        }
+        System.out.println();
+        System.out.print("Sorted Output: ");
+        for(int val : input) {
+            System.out.print(val + "\t");
+        }
+        System.out.println();
 		for(Pair p : result) {
-			System.out.println("For index(" + p.i + "," + p.j +") the value " + input[p.i] + " is greater than " + input[p.j]);
+			System.out.println("For pair (" + p.i + "," + p.j +") the value " + originalInput[p.i] + " is greater than " + originalInput[p.j]);
 		}
 	}
 
@@ -55,13 +69,16 @@ public class Inversion {
 		for(int k = p; k <=r; k++) {
 			if(i >= left.length) {
 				input[k] = right[j++];
+                continue;
 			}
 			if(j >= right.length) {
 				input[k] = left[i++];
+                continue;
 			}
-			if(left[i] >= right[j]) {
+			if(left[i] > right[j]) {
 				input[k] = right[j];
-				result.add(new Pair(i, j));
+                if(i != j)
+				    result.add(new Pair(j, k));
 				j++;
 			} else {
 				input[k] = left[i++];

@@ -1,3 +1,4 @@
+package Sorting;
 public class InsertionSortRec {
     public static void main(String[] args) {
 		int[] input = {10,2,4,3,8,5,9,1,7,6};
