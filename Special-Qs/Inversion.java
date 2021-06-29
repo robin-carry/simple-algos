@@ -7,15 +7,14 @@ public class Inversion {
 	public static void main(String[] args) {
 		int[] input = {10,2,4,3,8,5}; // Actual Answer: (10, 2), (10, 4), (10, 3), (10, 8), (10, 5) / (4, 3) / (8, 5) - 7.
 		int[] originalInput = Arrays.copyOf(input, input.length);
-
 		Inversion i = new Inversion();
 		int result = i.sortWithInversion(input);
-        System.out.print("Original Input: ");
+		System.out.print("Original Input: ");
         for(int val : originalInput) {
             System.out.print(val + "\t");
         }
-        System.out.println();
-        System.out.print("Sorted Output: ");
+    	System.out.println();
+    	System.out.print("Sorted Output: ");
         for(int val : input) {
             System.out.print(val + "\t");
         }
