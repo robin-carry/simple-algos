@@ -1,0 +1,181 @@
+Sorting Algorithms
+------------------
+------------------
+
+Insertion Sort
+--------------
+
+
+public class InsertionSort {
+	
+	public static void main(String[] args) {
+		int[] input = {5, 2, 4, 6, 1, 3};
+		InsertionSort sort = new InsertionSort();
+		sort.doInsertionSort(input)
+		System.out.print(input);
+	}
+
+	public void doInsertionSort(int[] input) {
+		for(int j = 1; j < input.length; j++) {
+			int key = input[j];
+			int i = j - 1;
+			while(i <= 0 && input[i] > key) {
+			  input[i + 1] = input[i];
+			  i--;
+			}
+			input[i + 1] = key;
+		}
+	}
+}
+
+Insertion Sort Desc
+-------------------
+
+public class InsertionSortDesc {
+	
+	public static void main(String[] args) {
+	  int[] input = {10,2,4,3,8,5,9,1,7,6};
+	  InsertionSortDesc obj = new InsertionSortDesc();
+	  obj.doSort(input);
+	  for(int i = 0; i < input.length; i++) {
+	  	System.out.print(input[i] + "\t");
+	  }
+	}
+
+	private void doSort(int[] input) {
+	  for(int j = 1; j < input.length; j++) {
+	  	int key = input[j];
+	  	int i = j - 1;
+	  	while(i >= 0 && input[i] < key) {
+	  		input[i + 1] = input[i];
+	  		i--;
+	  	}
+	  	input[i+1] = key;
+	  }
+	}
+}
+
+Insertion Sort Recursion
+------------------------
+
+public class InsertionSortRec {
+	public static void main(String[] args) {
+		int[] input = {10,2,4,3,8,5,9,1,7,6};
+		InsertionSortRec sorter = new InsertionSortRec();
+		sorter.doSort(input, 0, input.length - 1);
+		for(int i = 0; i < input.length; i++) {
+			System.out.print(input[i] + "\t");
+		}
+	}
+
+	public void doSort(int[] input, int p, int q) {
+		if(p < q) {
+			doSort(input, p, q - 1);
+			insert(input, p, q, q - 1);
+		}
+	}
+
+	public void insert(int[] input, int p, int q, int r) {
+		int key = input[q];
+		int i = r;
+		while(i >=0 && input[i] > key) {
+			input[i + 1] = input[i];
+			i--;
+		}
+		input[i + 1] = key;
+	}   
+}
+
+Selection Sort
+---------------
+
+public class SelectionSort {
+	
+	public static void main(String[] args) {
+		int[] input = {5, 2, 4, 6, 1, 3};
+		SelectionSort obj = new SelectionSort();
+		obj.doSort(input);
+		for(int i = 0; i < input.length; i++) {
+			System.out.print(input[i] + "\t");
+		}
+	}
+
+	public void doSort(int[] input) {
+		for(int i = 0; i < input.length - 1;i++) {
+			int minIndex = i + 1;
+			for(int j = i + 1; j < input.length - 1; j++) {
+				if(input[j] < input[minIndex]) {
+					minIndex = j;
+				}
+			}
+			if(input[minIndex] < input[i]) {
+				int temp = input[i];
+				input[i] = input[minIndex];
+				input[minIndex] = temp;
+			}
+		}
+	}
+}
+
+
+Merge Sort
+----------
+
+public class MergeSort {
+	
+	public static void main(String[] args) {
+		int[] input = {10,2,4,3,8,5,9,1,7,6};
+		MergeSort sort = new MergeSort();
+		sort.doSort(input, 0, input.length - 1);
+		for(int i = 0; i < input.length; i++) {
+			System.out.print(input[i] + "\t");
+		}
+	}
+
+	public void doSort(int[] input, int p, int r) {
+		if(p < r) {
+			int q = (p + r) / 2;
+			doSort(input, p, q);
+			doSort(input, q + 1, r);
+			merge(input, p, q, r);
+		}
+	}
+
+	public void merge(int[] input, int p, int q, int r) {
+		int n1 = q - p + 1;
+		int n2 = r - q;
+		int[] left = new int[n1];
+		int[] right = new int[n2];
+		for(int i = 0; i < n1; i++) {
+			left[i] = input[p + i - 1];
+		}
+		for(int i = 0; i < n2; i++) {
+			right[i] = input[q + i];
+		}
+		int i = 0, j = 0;
+		for(int k = p; k < r; k++) {
+			if(left[i] <= right[j]) {
+				input[k] = left[i];
+				i++;
+			} else {
+				input[k] = right[j];
+				j++;
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
