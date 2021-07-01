@@ -1,4 +1,3 @@
-// PENDING : NOT COMPLETED!!! :'(
 package Special;
 import java.util.Arrays;
 
@@ -45,6 +44,7 @@ public class Inversion {
 		for(int i = 0; i < n1; i++) left[i] = input[p + i];
 		for(int i = 0; i < n2; i++) right[i] = input[q + i + 1];
 		int i = 0, j = 0;
+		boolean counted = false;
 		for(int k = p; k <=r; k++) {
 			if(i >= left.length) {
 				input[k] = right[j++];
@@ -52,17 +52,17 @@ public class Inversion {
 			}
 			if(j >= right.length) {
 				input[k] = left[i++];
-				inv++;
                 continue;
 			}
-			if(left[i] > right[j]) {
-				input[k] = right[j];
-                if(i != j) {
-					inv++;
-				}
-				j++;
-			} else {
+			if(!counted && right[j] < left[i]) {
+				counted = true;
+				inv = inv + n1 - i;
+			}
+			if(left[i] <= right[j]) {
 				input[k] = left[i++];
+			} else {
+				input[k] = right[j++];
+				counted = false;
 			}
 		}
 		return inv;

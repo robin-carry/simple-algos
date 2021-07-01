@@ -4,7 +4,7 @@ Attempt to understand the basics of Algorithms after 16yrs when last studied at 
 
 Note: There are specific questions folder which are based on one or the other concepts. 
 
-## Special-Qs
+## Special
 
 1. **Finding Pairs**: For a given array with 'n' values, find if a pair exists with exact sum equal to 'x'.
 
@@ -27,6 +27,13 @@ Note: There are specific questions folder which are based on one or the other co
     ii. Complexity: O(nlogn) 
 
     _Trick: Check each time the `right` is swapped with `left` or the `right` stack is done and `left` stack has values remaining._
+
+3. Multiplying String Numbers: Give two large enough numbers in string representation, give multiplcation output. 
+
+    Input: Two strings with only digits in it. 
+    Output: String representation of the multiplication. 
+
+    _Trick: Number of length `m` & `n`, results in number with length `m+n`. Use Array of length `m+n`. O(n^2)` complexity_
 
 ## Sorting
 
